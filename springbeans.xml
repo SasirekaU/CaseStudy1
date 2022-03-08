@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+<bean id="user" class="OnlineShoppingCaseStudy.OnlineShopping.User">
+<property name="username" value="Sasireka" />
+<property name="email" value="sasireka@gmail.com" />
+<property name="password"  value="Sasi@23" />
+<property name="shipping_address"  value="Salem,Tamilnadu" />
+<property name="billing_address"  value="Sasi" />
+</bean>
+
+<bean id="user1" class="OnlineShoppingCaseStudy.OnlineShopping.User">
+<property name="username" value="Keerthu" />
+<property name="email" value="keerthu@gmail.com" />
+<property name="password"  value="keerthu@123" />
+<property name="shipping_address"  value="Chennai,Tamilnadu" />
+<property name="billing_address"  value="Chennai" />
+</bean>
+
+<bean id="product" class="OnlineShoppingCaseStudy.OnlineShopping.Product">
+<property name="product_name" value="Dairymilk" />
+<property name="price" value="65.00" />
+<property name="quantity_in_stock"  value="300" />
+<property name="imagelocation"  value="CDE" />
+</bean>
+
+<bean id="product1" class="OnlineShoppingCaseStudy.OnlineShopping.Product">
+<property name="product_name" value="Cookies" />
+<property name="price" value="100.00" />
+<property name="quantity_in_stock"  value="1000" />
+<property name="imagelocation"  value="XYZ" />
+</bean>
+
+<bean id="product2" class="OnlineShoppingCaseStudy.OnlineShopping.Product">
+<property name="product_name" value="Cold Drinks" />
+<property name="price" value="170.00" />
+<property name="quantity_in_stock"  value="300" />
+<property name="imagelocation"  value="MNO" />
+</bean>
+
+<bean id="product3" class="OnlineShoppingCaseStudy.OnlineShopping.Product">
+<property name="product_name" value="Wafers" />
+<property name="price" value="30.00" />
+<property name="quantity_in_stock"  value="900" />
+<property name="imagelocation"  value="JKL" />
+</bean>
+
+<bean id="cart" class="OnlineShoppingCaseStudy.OnlineShopping.Cart">
+<constructor-arg ref="user"/>
+<property name="total_amount" value="10500.00" />
+<property name="Status" value="true" />
+<property name="ConfirmOrder" value="true"/>
+<property name="productList">
+<list>
+<ref bean="product"/>
+<ref bean="product1"/>
+<ref bean="product2"/>
+<ref bean="product3"/>
+</list>
+</property>
+</bean>
+
+<bean id="cart1" class="OnlineShoppingCaseStudy.OnlineShopping.Cart">
+<constructor-arg ref="user1"/>
+<property name="total_amount" value="10500.00" />
+<property name="Status" value="true" />
+<property name="ConfirmOrder" value="true"/>
+<property name="productList">
+<list>
+<ref bean="product"/>
+<ref bean="product1"/>
+<ref bean="product2"/>
+<ref bean="product3"/>
+</list>
+</property>
+</bean>
+
+
+<bean id="order" class="OnlineShoppingCaseStudy.OnlineShopping.Order">
+	<property name="cartList">
+	<list>
+		<ref bean="cart"/>
+		<ref bean="cart1"/>
+	</list>
+	</property>
+</bean>
+
+</beans>
